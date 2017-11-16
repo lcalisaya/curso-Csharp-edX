@@ -6,17 +6,30 @@ namespace Mod3_Lab2
     {
         static void Main(string[] args)
         {
-            int result = Divide(2, 0);
+            int first = 9;
+            int second = 0;
+            Console.WriteLine("Ingrese su primer número: ");
+            first = System.Int32.Parse(Console.ReadLine());
+            Console.WriteLine("Ingrese su segundo número: ");
+            second = System.Int32.Parse(Console.ReadLine());
+
+            int result = Divide(first, second);
+            Console.WriteLine("El resultado de: {0} dividido {1} es {2}", first, second, result);
         }
         
-        // Method Divide() accepts two integer arguments and returns the result
-        // of dividing first by second
-        // We do no validation of the the arguments so a user may pass in a zero
-        // in place of the second parameter. This is an illegal operation in Math
-        // If we don't validate input or catch the error, the application will crash
+        // Method Divide() that contains exception handling to deal with 
+        // divide by zero exceptions.
         static int Divide(int first, int second)
         {
-            int result = first / second;
+            int result = 0;
+            try
+            {
+                result = first / second;
+            }
+            catch (DivideByZeroException)
+            {
+                Console.WriteLine("No se puede dividir por 0, por favor provea un valor que no sea 0 para su segundo valor");
+            }
             return result;
         }
     }
