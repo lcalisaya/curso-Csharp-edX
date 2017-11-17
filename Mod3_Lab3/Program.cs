@@ -9,6 +9,7 @@ namespace Mod3_Lab3
             
         }
 
+        // Métodos que obtienen la información que ingresa el Usuario/a
         static void GetStudentInformation()
         {
             Console.WriteLine("Ingrese en Nombre del Estudiante:");
@@ -56,14 +57,35 @@ namespace Mod3_Lab3
             Console.WriteLine("Ingrese el nombre del título:");
             string degreeName = Console.ReadLine();
             Console.WriteLine("Ingrese los créditos requeridos:");
-            bool creditsRequired = Console.ReadLine();
+            bool creditsRequired = Convert.ToBoolean(Console.ReadLine());
         }
             
            
-
+        // Métodos que imprimen en pantalla la información que ingresó el Usuario/a
         static void PrintStudentDetails(string first, string last, string birthday)
         {
-            Console.WriteLine("{0} {1} nació el: {2}", first, last, birthday);
+            Console.WriteLine("{0} {1} es Estudiantes y nació el: {2}", first, last, birthday);
         }
+
+        static void PrintTeacherDetails(string first, string last, string birthday)
+        {
+            Console.WriteLine("{0} {1} es Profesor y nació el: {2}", first, last, birthday);
+        }
+
+        static void PrintCourseDetails(string courseName, string credits, string durationInweeks, string teacher)
+        {
+            Console.WriteLine("El nombre del curso: {0} -- Los créditos del curso: {1} -- El curso dura {2} semanas -- El profesor es: {3}", courseName, credits, durationInweeks, teacher);
+        }
+
+        static void PrintUProgramDetails(string programName, string departmentHead, string degrees)
+        {
+            Console.WriteLine("Nombre del programa: {0} -- Jefe del Departamento: {1} -- Títulos: {2}", programName, departmentHead, degrees);
+        }
+
+        static void PrintDegreeDetails(string degreeName, string creditsRequired)
+        {
+            Console.WriteLine("Nombre del título: {0} -- Créditos requeridos: {1}", degreeName, creditsRequired);
+        }
+
     }
 }
