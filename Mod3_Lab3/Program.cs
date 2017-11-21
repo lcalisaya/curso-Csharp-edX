@@ -6,75 +6,108 @@ namespace Mod3_Lab3
     {
         static void Main(string[] args)
         {
+            //Declaración de variables
+            string firstNameStudent;
+            string lastNameStudent;
+            DateTime birthDateStudent;
             
+            string firstNameTeacher;
+            string lastNameTeacher;
+            DateTime birthDateTeacher;
+
+            string courseName; 
+            string credits; 
+            int durationInweeks; 
+            string teacher;
+
+            string programName; 
+            string departmentHead; 
+            string degrees;
+
+            string degreeName; 
+            bool creditsRequired;
+
+            //Se llama a cada uno de los métodos que solicitan datos al Usuario/a
+            GetStudentInformation(out firstNameStudent, out lastNameStudent, out birthDateStudent);
+            GetTeacherInformation(out firstNameTeacher, out lastNameTeacher, out birthDateTeacher);
+            GetCourseInformation(out courseName, out credits, out durationInweeks, out teacher);
+            GetUProgramInformation(out programName, out departmentHead, out degrees);
+            GetDegreeInformation(out degreeName, out creditsRequired);
+
+            // Se llama a cada uno de los métodos que imprimirá en pantalla los datos requeridos
+            PrintStudentDetails(firstNameStudent, lastNameStudent, birthDateStudent);
+            PrintTeacherDetails(firstNameTeacher, lastNameTeacher, birthDateTeacher);
+            PrintCourseDetails(courseName, credits, durationInweeks, teacher);
+            PrintUProgramDetails(programName, departmentHead, degrees);
+            PrintDegreeDetails(degreeName, creditsRequired);
         }
 
         // Métodos que obtienen la información que ingresa el Usuario/a
-        static void GetStudentInformation()
+        static void GetStudentInformation(out string firstName, out string lastName, out DateTime birthDate)
         {
-            Console.WriteLine("Ingrese en Nombre del Estudiante:");
-            string firstName = Console.ReadLine();
+            Console.WriteLine("Ingrese el Nombre del Estudiante:");
+            firstName = Console.ReadLine();
             Console.WriteLine("Ingrese el Apellido del Estudiante:");
-            string lastName = Console.ReadLine();
+            lastName = Console.ReadLine();
             Console.WriteLine("Ingrese fecha de nacimiento del Estudiante con formato dd/mm/aaaa:");
-            DateTime birthDate = Convert.ToDateTime(Console.ReadLine());
+            birthDate = Convert.ToDateTime(Console.ReadLine());
         }
 
-        static void GetTeacherInformation()
+        static void GetTeacherInformation(out string firstName, out string lastName, out DateTime birthDate)
         {
-            Console.WriteLine("Ingrese en Nombre del Profesor:");
-            string firstName = Console.ReadLine();
+            Console.WriteLine("Ingrese el Nombre del Profesor:");
+            firstName = Console.ReadLine();
             Console.WriteLine("Ingrese el Apellido del Profesor:");
-            string lastName = Console.ReadLine();
+            lastName = Console.ReadLine();
             Console.WriteLine("Ingrese fecha de nacimiento del Profesor con formato dd/mm/aaaa:");
-            DateTime birthDate = Convert.ToDateTime(Console.ReadLine());
+            birthDate = Convert.ToDateTime(Console.ReadLine());
         }
 
-        static void GetCourseInformation()
+        static void GetCourseInformation(out string courseName, out string credits, out int durationInweeks, out string teacher)
         {
             Console.WriteLine("Ingrese el nombre del curso:");
-            string courseName = Console.ReadLine();
+            courseName = Console.ReadLine();
             Console.WriteLine("Ingrese los créditos del curso:");
-            string credits = Console.ReadLine();
+            credits = Console.ReadLine();
             Console.WriteLine("Ingrese la duración en semanas del curso:");
-            int	durationInweeks = Convert.ToInt32(Console.ReadLine());
+            durationInweeks = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Ingrese el profesor del curso:");
-            string teacher = Console.ReadLine();
+            teacher = Console.ReadLine();
         }
 
-        static void GetUProgramInformation()
+        static void GetUProgramInformation(out string programName, out string departmentHead, out string degrees)
         {
             Console.WriteLine("Ingrese el nombre del programa:");
-            string programName = Console.ReadLine();
+            programName = Console.ReadLine();
             Console.WriteLine("Ingrese el jefe del departamento:");
-            string departmentHead = Console.ReadLine();
+            departmentHead = Console.ReadLine();
             Console.WriteLine("Ingrese los títulos:");
-            string degrees = Console.ReadLine();
+            degrees = Console.ReadLine();
         }
 
-        static void GetDegreeInformation()
+        static void GetDegreeInformation(out string degreeName, out bool creditsRequired)
         {
             Console.WriteLine("Ingrese el nombre del título:");
-            string degreeName = Console.ReadLine();
-            Console.WriteLine("Ingrese los créditos requeridos:");
-            bool creditsRequired = Convert.ToBoolean(Console.ReadLine());
+            degreeName = Console.ReadLine();
+            Console.WriteLine("Ingrese 'true' si el título tiene créditos requeridos. Caso contrario, ingrese'false':");
+            creditsRequired = Convert.ToBoolean(Console.ReadLine());
         }
             
            
         // Métodos que imprimen en pantalla la información que ingresó el Usuario/a
-        static void PrintStudentDetails(string first, string last, string birthday)
+        static void PrintStudentDetails(string first, string last, DateTime birth)
         {
-            Console.WriteLine("{0} {1} es Estudiantes y nació el: {2}", first, last, birthday);
+            Console.WriteLine("{0} {1} es Estudiante y nació el {2}", first, last, birth.ToString("dd/MM/yyyy"));
         }
 
-        static void PrintTeacherDetails(string first, string last, string birthday)
+        static void PrintTeacherDetails(string first, string last, DateTime birth)
         {
-            Console.WriteLine("{0} {1} es Profesor y nació el: {2}", first, last, birthday);
+            Console.WriteLine("{0} {1} es Profesor y nació el {2}", first, last, birth.ToString("dd/MM/yyyy"));
         }
 
-        static void PrintCourseDetails(string courseName, string credits, string durationInweeks, string teacher)
+        static void PrintCourseDetails(string courseName, string credits, int durationInweeks, string teacher)
         {
-            Console.WriteLine("El nombre del curso: {0} -- Los créditos del curso: {1} -- El curso dura {2} semanas -- El profesor es: {3}", courseName, credits, durationInweeks, teacher);
+            Console.WriteLine("El nombre del curso: {0} -- Los créditos del curso: {1} -- El curso dura {2} semanas -- El profesor es: {3}", courseName, credits, durationInweeks.ToString(), teacher);
         }
 
         static void PrintUProgramDetails(string programName, string departmentHead, string degrees)
@@ -82,10 +115,9 @@ namespace Mod3_Lab3
             Console.WriteLine("Nombre del programa: {0} -- Jefe del Departamento: {1} -- Títulos: {2}", programName, departmentHead, degrees);
         }
 
-        static void PrintDegreeDetails(string degreeName, string creditsRequired)
+        static void PrintDegreeDetails(string degreeName, bool creditsRequired)
         {
-            Console.WriteLine("Nombre del título: {0} -- Créditos requeridos: {1}", degreeName, creditsRequired);
+            Console.WriteLine("Nombre del título: {0} -- Créditos requeridos: {1}", degreeName, creditsRequired.ToString());
         }
-
     }
 }
