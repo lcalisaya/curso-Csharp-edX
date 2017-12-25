@@ -29,6 +29,15 @@ namespace Mod3_Lab3
 
             //Se llama a cada uno de los métodos que solicitan datos al Usuario/a
             GetStudentInformation(out firstNameStudent, out lastNameStudent, out birthDateStudent);
+            try
+            {
+                ValidateStudentBirthday();
+            }
+            catch (NotImplementedException notImp)
+            {
+                Console.WriteLine(notImp.Message);
+            }
+
             GetTeacherInformation(out firstNameTeacher, out lastNameTeacher, out birthDateTeacher);
             GetCourseInformation(out courseName, out credits, out durationInweeks, out teacher);
             GetUProgramInformation(out programName, out departmentHead, out degrees);
@@ -91,6 +100,11 @@ namespace Mod3_Lab3
             degreeName = Console.ReadLine();
             Console.WriteLine("Ingrese 'true' si el título tiene créditos requeridos. Caso contrario, ingrese'false':");
             creditsRequired = Convert.ToBoolean(Console.ReadLine());
+        }
+
+        static void ValidateStudentBirthday()
+        {
+            throw new NotImplementedException();
         }
             
            
